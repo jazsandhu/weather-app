@@ -1,0 +1,16 @@
+.forcast-title {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.forcast-col {
+  padding: 0;
+  text-align: center;
+}
+
+.forcast-card {
+  margin: 5px;
+}
