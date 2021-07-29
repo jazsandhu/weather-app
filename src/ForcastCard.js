@@ -10,9 +10,9 @@ function ForcastCard(forcast) {
                 <Card.Body>
                     <Card.Title><GetDay date={forcast.weather?.datetime} /></Card.Title>
                     <Card.Text>{forcast.weather?.datetime}</Card.Text>
-                    <img src={"https://www.weatherbit.io/static/img/icons/" + forcast.weather?.weather?.icon + ".png"} alt="" />
+                    <img src={`https://www.weatherbit.io/static/img/icons/${forcast.weather?.weather.icon}.png`} alt="" />
                     <Card.Text>
-                        {forcast.weather?.weather?.description}
+                        {forcast.weather?.weather.description}
                     </Card.Text>
                     <Card.Text>
                         Max Temp: {Math.round(forcast.weather?.app_max_temp)}ºc<br />

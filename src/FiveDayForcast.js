@@ -4,6 +4,7 @@ import ForcastCard from './ForcastCard.js'
 import './FiveDayForcast.css';
 
 function FiveDayForcast(weather) {
+    console.log(weather.forcast?.data?.data[0]);
     return (
         <div>
             {(typeof weather.currentWeather?.name !== "undefined") ? ( /* return weather result on valid search */
@@ -18,22 +19,22 @@ function FiveDayForcast(weather) {
                                 <Card className="forcast-card" bg="info">
                                     <Card.Body>
                                         <Card.Title>Today</Card.Title>
-                                        <Card.Text>{weather.forcast[0]?.datetime}</Card.Text>
-                                        <img src={"https://www.weatherbit.io/static/img/icons/" + weather.forcast[0]?.weather?.icon + ".png"} alt="" />
+                                        <Card.Text>{weather.forcast?.data?.data[0].datetime}</Card.Text>
+                                        <img src={`https://www.weatherbit.io/static/img/icons/${weather.forcast?.data?.data[0].weather?.icon}.png`} alt="" />
                                         <Card.Text>
-                                            {weather.forcast[0]?.weather?.description}
+                                            {weather.forcast?.data?.data[0].weather?.description}
                                         </Card.Text>
                                         <Card.Text>
-                                            Max Temp: {Math.round(weather.forcast[0]?.app_max_temp)}ºc<br />
-                                            Min Temp: {Math.round(weather.forcast[0]?.app_min_temp)}ºc
+                                            Max Temp: {Math.round(weather.forcast?.data?.data[0].app_max_temp)}ºc<br />
+                                            Min Temp: {Math.round(weather.forcast?.data?.data[0].app_min_temp)}ºc
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <ForcastCard weather={weather.forcast[1]} />
-                            <ForcastCard weather={weather.forcast[2]} />
-                            <ForcastCard weather={weather.forcast[3]} />
-                            <ForcastCard weather={weather.forcast[4]} />
+                            <ForcastCard weather={weather.forcast.data?.data[1]} />
+                            <ForcastCard weather={weather.forcast.data?.data[2]} />
+                            <ForcastCard weather={weather.forcast.data?.data[3]} />
+                            <ForcastCard weather={weather.forcast.data?.data[4]} />
                         </Row>
                     </Container>
                 </div>

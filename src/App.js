@@ -14,16 +14,15 @@ function App() {
   const search = event => { /* fetch API data upon search entry */
     if (event.key === "Enter") {
       /* fetch current weather: */
-      axios.get(process.env.REACT_APP_OPENWEATHER_URL + "weather?q=" + query + "&appid=" + process.env.REACT_APP_OPENWEATHER_KEY)
+      axios.get(`${process.env.REACT_APP_OPENWEATHER_URL}weather?q=toronto&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
         .then(result => {
           setWeather(result.data);
 
           /* 5 day weather forcast: */
-          fetch(process.env.REACT_APP_API_URL + "forecast/daily?city=" + query + "&key=" + process.env.REACT_APP_API_KEY)
-            .then(resolve => resolve.json())
+          axios.get(`${process.env.REACT_APP_API_URL}forecast/daily?city=toronto&key=${process.env.REACT_APP_API_KEY}`)
             .then(result => {
-              setForcast(result.data);
-            })
+              setForcast(result);
+            });
         })
         .catch(err => alert("API Error: " + err));
       setQuery('');
